@@ -67,9 +67,10 @@
   * a macro key is pressed.
   */
 
-enum { MACRO_VERSION_INFO,
-       MACRO_ANY
-     };
+enum {
+  MACRO_VERSION_INFO,
+  MACRO_ANY
+};
 
 /** The Model 01's key layouts are defined as 'keymaps'. By default, there are three
   * keymaps: The standard QWERTY keymap, the "Function layer" keymap and the "Numpad"
@@ -102,18 +103,21 @@ enum { MACRO_VERSION_INFO,
   * Similarly, a key defined as 'LockLayer(NUMPAD)' will switch to NUMPAD when tapped.
   */
 
-/**
-  * Layers are "0-indexed" -- That is the first one is layer 0. The second one is layer 1.
+/** Layers are "0-indexed" -- That is the first one is layer 0. The second one is layer 1.
   * The third one is layer 2.
   * This 'enum' lets us use names like QWERTY, FUNCTION, and NUMPAD in place of
   * the numbers 0, 1 and 2.
   */
 
-enum { QWERTY, NUMPAD, FUNCTION }; // layers
+enum {
+  QWERTY,
+  NUMPAD,
+  FUNCTION
+};
 
-/* This comment temporarily turns off astyle's indent enforcement
- * so we can make the keymaps actually resemble the physical key layout better
- */
+/** This comment temporarily turns off astyle's indent enforcement
+  * so we can make the keymaps actually resemble the physical key layout better
+  */
 // *INDENT-OFF*
 
 const Key keymaps[][ROWS][COLS] PROGMEM = {
@@ -123,13 +127,15 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    Key_Backtick, Key_Q, Key_W, Key_E, Key_R, Key_T, Key_Tab,
    Key_PageUp,   Key_A, Key_S, Key_D, Key_F, Key_G,
    Key_PageDown, Key_Z, Key_X, Key_C, Key_V, Key_B, Key_Escape,
-   Key_LeftControl, Key_Backspace, Key_LeftGui, ShiftToLayer(FUNCTION), Key_LeftShift,
+   Key_LeftControl, Key_Backspace, Key_LeftGui, ShiftToLayer(FUNCTION),
+   Key_LeftShift,
 
    M(MACRO_ANY),  Key_6, Key_7, Key_8,     Key_9,         Key_0,         LockLayer(NUMPAD),
    Key_Enter,     Key_Y, Key_U, Key_I,     Key_O,         Key_P,         Key_Equals,
                   Key_H, Key_J, Key_K,     Key_L,         Key_Semicolon, Key_Quote,
    Key_RightAlt,  Key_N, Key_M, Key_Comma, Key_Period,    Key_Slash,     Key_Minus,
-   ShiftToLayer(FUNCTION), Key_LeftAlt, Key_Spacebar, Key_RightControl, Key_RightShift),
+   ShiftToLayer(FUNCTION), Key_LeftAlt, Key_Spacebar, Key_RightControl,
+   Key_RightShift),
 
 
   [NUMPAD] =  KEYMAP_STACKED
@@ -150,15 +156,15 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
   [FUNCTION] =  KEYMAP_STACKED
   (___,      Key_F1,           Key_F2,      Key_F3,  Key_F4,  Key_F5,  XXX,
    Key_Tab,  ___,              ___,         ___,     ___,     ___,     ___,
-   Key_Home, ___,              ___,         ___,     ___,     ___,     ___,
+   Key_Home, ___,              ___,         ___,     ___,     ___,
    Key_End,  Key_PrintScreen,  Key_Insert,  ___,     ___,     ___,     ___,
    ___, Key_Delete, ___, ___,
    ___,
 
-   ___, Key_F6,                 Key_F7,                   Key_F8,                   Key_F9,          Key_F10,          Key_F11,
-   ___, Key_KeypadLeftParen,    Key_LeftCurlyBracket,     Key_RightCurlyBracket,    Key_LeftBracket, Key_RightBracket, Key_F12,
-        Key_KeypadRightParen,   Key_LeftArrow,            Key_DownArrow,            Key_UpArrow,     Key_RightArrow,   ___,
-   ___, ___,                    ___,                      ___,                      ___,             Key_Backslash,    Key_Pipe,
+   ___, Key_F6,           Key_F7,                   Key_F8,                   Key_F9,          Key_F10,          Key_F11,
+   ___, Key_LeftParen,    Key_LeftCurlyBracket,     Key_RightCurlyBracket,    Key_LeftBracket, Key_RightBracket, Key_F12,
+        Key_RightParen,   Key_LeftArrow,            Key_DownArrow,            Key_UpArrow,     Key_RightArrow,   ___,
+   ___, ___,              ___,                      ___,                      ___,             Key_Backslash,    Key_Pipe,
    ___, ___, Key_Enter, ___,
    ___)
 
